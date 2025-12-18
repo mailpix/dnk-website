@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNK - Elevate Your Experience</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/css/style.css?v=3">
+    <link rel="stylesheet" href="assets/css/blog.css?v=3">
+</head>
+
+<body>
+
+    <!-- Scroll Progress Stick -->
+    <div id="scroll-progress"></div>
+
+    ...
+
+    <!-- Scripts -->
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    <script src="assets/js/appwrite-config.js"></script>
+    <script src="assets/js/landing-dynamic.js"></script>
+
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <!-- Scroll Control (Inline Styles for Safety) -->
+    <button id="scroll-ctrl-btn" class="scroll-ctrl-btn" title="Scroll"
+        style="display: flex !important; opacity: 1 !important; visibility: visible !important; z-index: 99999 !important;">
+        <i class="fas fa-arrow-down"></i>
+    </button>
+
+    <script src="assets/js/script.js?v=4"></script>
+    <!-- Flipbook Logic -->
+    <link rel="stylesheet" href="assets/css/flipbook.css">
+    <script src="assets/js/flipbook.js"></script>
+</body>
+
+</html>
+
+<!-- Header -->
+<header id="main-header">
+    <div class="container header-content">
+        <a href="#hero" class="logo">
+            <img src="assets/images/logo.png" alt="DNK Logo" style="height: 60px;">
+        </a>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/6285215168765" target="_blank" class="btn-contact"><i class="fab fa-whatsapp"></i>
+            Contact Us</a>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="hero" class="hero-section">
+    <!-- Social Icons Sidebar (Added Back) -->
+    <div class="hero-sidebar left">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/diwangsanyalakreatif/" target="_blank"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@dnk.eo" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@DiwangsaNyalaKreatif" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- Background Overlay Image -->
+    <div class="hero-bg-image"></div>
+
+    <div class="container hero-content center-layout">
+        <h1 class="hero-title">
+            <div class="title-line">
+                <span class="rotate-wrapper anim-swipe" id="swipe-wrapper">
+                    <span class="rotate-text active" data-pair="0">Elevate</span>
+                    <span class="rotate-text" data-pair="1">Create</span>
+                    <span class="rotate-text" data-pair="2">Celebrate</span>
+                    <span class="rotate-text" data-pair="3">Inspire</span>
+                </span>
+                <span class="static-text">Your</span>
+            </div>
+            <div class="title-line">
+                <span class="static-text">Event</span>
+                <span class="rotate-wrapper anim-type" id="type-wrapper">
+                    <span class="rotate-text active" data-pair="0">Experience.</span>
+                    <span class="rotate-text" data-pair="1">Stories.</span>
+                    <span class="rotate-text" data-pair="2">Memories.</span>
+                    <span class="rotate-text" data-pair="3">Moments.</span>
+                </span>
+            </div>
+        </h1>
+        <p class="hero-subtitle">Designed to inspire your greatest celebrations.<br>We connect your brand with
+            audiences through unforgettable moments.</p>
+        <div class="hero-buttons vertical">
+            <a href="https://wa.me/6285215168765" class="btn-primary hover-rotate">Konsultasi Sekarang</a>
+            <button class="btn-text hover-underline" onclick="openFlipbook()"
+                style="background:none; border:none; color:white; font:inherit; cursor:pointer;">
+                <i class="fas fa-download"></i> View Company Profile
+            </button>
+        </div>
+    </div>
+
+    <div class="scroll-indicator-bottom">
+        <span>SCROLL</span>
+        <div class="line"></div>
+    </div>
+</section>
+
+<!-- Video Showcase (Sticky) -->
+<section id="video-showcase" class="video-sticky-section">
+    <div class="container sticky-video-layout">
+
+        <!-- Left Sticky: Title & CTA -->
+        <div class="sticky-side left">
+            <div class="video-info">
+                <span class="label">Featured Project</span>
+                <h2 id="sticky-video-title" class="fade-text">PLN Ardan Senja Syahdu</h2>
+            </div>
+            <!-- Button moved here -->
+            <div class="video-cta">
+                <p style="margin-bottom: 5px; font-size: 0.8rem; opacity: 0.6;">Watch full video on</p>
+                <a href="https://www.youtube.com/watch?v=IN4Do2jh47I" target="_blank" id="sticky-video-btn"
+                    class="btn-youtube">
+                    <i class="fab fa-youtube"></i> View
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Scroll: Videos -->
+        <div class="scroll-center">
+
+            <!-- Video 1 -->
+            <div class="video-card" data-title="PLN Ardan Senja Syahdu"
+                data-link="https://www.youtube.com/watch?v=IN4Do2jh47I">
+                <div class="video-blocker"></div>
+                <div class="video-frame">
+                    <iframe id="player-1"
+                        src="https://www.youtube.com/embed/IN4Do2jh47I?enablejsapi=1&controls=0&rel=0&playsinline=1&mute=1&loop=1&playlist=IN4Do2jh47I"
+                        title="Video 1" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-card" data-title="Indonesia International Motor Show 2024"
+                data-link="https://www.youtube.com/watch?v=RXR588xbmbk">
+                <div class="video-blocker"></div>
+                <div class="video-frame">
+                    <iframe id="player-2"
+                        src="https://www.youtube.com/embed/RXR588xbmbk?enablejsapi=1&controls=0&rel=0&playsinline=1&mute=1&loop=1&playlist=RXR588xbmbk"
+                        title="Video 2" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-card" data-title="PLN Mobile Ecofest 2024"
+                data-link="https://www.youtube.com/watch?v=VJntUBSxGiA">
+                <div class="video-blocker"></div>
+                <div class="video-frame">
+                    <iframe id="player-3"
+                        src="https://www.youtube.com/embed/VJntUBSxGiA?enablejsapi=1&controls=0&rel=0&playsinline=1&mute=1&loop=1&playlist=VJntUBSxGiA"
+                        title="Video 3" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+                </div>
+            </div>
+
+            <!-- Footer Quote -->
+            <div class="video-footer-quote">
+                "We don't just organize events, we connect your brand with audiences through unforgettable moments."
+            </div>
+
+        </div>
+        <!-- Right Column Removed -->
+
+    </div>
+</section>
+
+<!-- Services Section (New Layout) -->
+<section id="services" class="services-section-new">
+    <div class="services-container">
+        <!-- Item 1 -->
+        <div class="service-item">
+            <div class="service-bg"
+                style="background-image: url('https://lh3.googleusercontent.com/d/18Rylp9Vivq5nyyZjpmpiXcyJ02vmkGWL=s1024-w1024-h1024-e365-rj-c0xffffff');">
+            </div>
+            <div class="service-overlay"></div>
+            <div class="service-content">
+                <span class="service-num">01</span>
+                <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
+                <h3>Event Planner</h3>
+                <p>We design unforgettable events, from concept to execution. With a keen eye for detail, we ensure your
+                    event runs smoothly and aligns with your vision</p>
+                <a href="https://wa.me/6285215168765" class="btn-view-more">Let's Discuss</a>
+            </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="service-item">
+            <div class="service-bg"
+                style="background-image: url('https://lh3.googleusercontent.com/d/1cR9eYSK1Yin2b3O7PAuNFr99HriWuJvy=s1024-w1024-h1024-e365-rj-c0xffffff');">
+            </div>
+            <div class="service-overlay"></div>
+            <div class="service-content">
+                <span class="service-num">02</span>
+                <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Event Production</h3>
+                <p>From decoration to technical aspects, we handle every production detail with precision. Our
+                    experienced team transforms ideas into captivating visual experiences.</p>
+                <a href="https://wa.me/6285215168765" class="btn-view-more">Let's Discuss</a>
+            </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="service-item">
+            <div class="service-bg"
+                style="background-image: url('https://lh3.googleusercontent.com/d/1uHHZq1K2ZO5TJ1E-lQUUhF8GdqjLxxHz=s1024-w1024-h1024-e365-rj-c0xffffff');">
+            </div>
+            <div class="service-overlay"></div>
+            <div class="service-content">
+                <span class="service-num">03</span>
+                <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Brand Activation</h3>
+                <p>We create experiences that emotionally connect your brand with the audience. Through creative
+                    activations, we help strengthen your brand image and foster loyalty..</p>
+                <a href="https://wa.me/6285215168765" class="btn-view-more">Let's Discuss</a>
+            </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="service-item">
+            <div class="service-bg"
+                style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2070');">
+            </div>
+            <div class="service-overlay"></div>
+            <div class="service-content">
+                <span class="service-num">04</span>
+                <div class="service-icon"><i class="fas fa-ring"></i></div>
+                <h3>Wedding Organizer</h3>
+                <h4 style="margin-bottom: 8px;">by Dalang Wedding Organizer</h4>
+                <p>Your big day is our priority. From planning to execution, we manage every detail of your wedding,
+                    ensuring your special day is flawless and filled with beautiful memories.</p>
+                <a href="https://www.instagram.com/dalangweddingorganizer/" target="_blank"
+                    class="btn-view-more btn-instagram">
+                    <i class="fab fa-instagram"></i> View More on Instagram
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section (New) -->
+<section id="process" class="process-section">
+    <div class="container process-container">
+        <!-- Left: Interactive Steps -->
+        <div class="process-steps">
+            <div class="section-header-left">
+                <h4 class="sub-title">How We Work</h4>
+                <h2 class="title">Elevating Your Event Experience</h2>
+                <p class="description">Diwangsa Nyala Kreatif takes event planning to the next level by turning
+                    every event into an extraordinary experience.
+                    With our seamless process, we ensure that every detail is handled with precision, making your
+                    event not just memorable, but truly exceptional
+                </p>
+            </div>
+
+            <div class="step-card active" data-step="1">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <h3>Consultation</h3>
+                    <p>We start by understanding your vision, offering expert advice to make sure every idea aligns
+                        perfectly with your goals.</p>
+                </div>
+            </div>
+
+            <div class="step-card" data-step="2">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <h3>Event Planning</h3>
+                    <p>With a clear roadmap, we create a customized plan that guarantees seamless coordination and a
+                        unique experience tailored just for you.</p>
+                </div>
+            </div>
+
+            <div class="step-card" data-step="3">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <h3>Event Production</h3>
+                    <p>Our skilled team brings the plan to life. From design to execution, every element is crafted
+                        with precision to ensure perfection.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-card" data-step="4">
+                <div class="step-num">04</div>
+                <div class="step-content">
+                    <h3>D-Day Management</h3>
+                    <p>On the big day, we take care of everything—so you can focus on enjoying the moment, knowing
+                        every detail is in expert hands.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Visual Preview -->
+        <div class="process-visual">
+            <div class="visual-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/13eCYeKZuvKycbqNILxRrpyUXwKhn4AZP" alt="Consultation"
+                    class="step-img active" id="img-1">
+                <img src="https://lh3.googleusercontent.com/d/1AlEuKrktf38qZqFMtAnbmiYF6Nav3KSF" alt="Design"
+                    class="step-img" id="img-2">
+                <img src="https://lh3.googleusercontent.com/d/196imq72NBcrB9XD0biIUDeav98nnIPlE" alt="Production"
+                    class="step-img" id="img-3">
+                <img src="https://lh3.googleusercontent.com/d/18cdjBRNvsx5D4wfvDx5CANIIQfsU07jQ" alt="Event Day"
+                    class="step-img" id="img-4">
+
+                <div class="visual-decoration"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Welcome & Portfolio Section -->
+<section id="projects" class="project-section" style="margin-top: 48px;">
+    <div class="container">
+        <div class="section-header">
+            <h4 class="sub-title">Selected Works</h4>
+            <h2 class="section-title">Our Portfolio</h2>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Data will be injected by assets/js/landing-dynamic.js -->
+            <div class="loading-indicator" style="grid-column: 1/-1; text-align: center; padding: 50px; color: #666;">
+                <p>Loading projects...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service Section -->
+
+
+<!-- Clients Section -->
+<section id="clients" class="clients-section">
+    <div class="container" style="text-align: center;">
+        <h2 class="section-title" style="color: black; text-align: center; margin-bottom: 50px;">Our Partner</h2>
+        <div class="clients-wrapper">
+            <!-- Nav buttons removed for multi-row layout -->
+            <div class="clients-grid">
+                <div class="client-logo"><img src="assets/images/SVG/danantara.svg" alt="Danantara"></div>
+                <div class="client-logo"><img src="assets/images/SVG/pln_mobile.svg" alt="PLN Mobile"></div>
+                <div class="client-logo"><img src="assets/images/SVG/iconnet.svg" alt="Iconnet"></div>
+                <div class="client-logo"><img src="assets/images/SVG/pln_icon.svg" alt="PLN Icon"></div>
+                <div class="client-logo"><img src="assets/images/SVG/pln.svg" alt="PLN"></div>
+                <div class="client-logo"><img src="assets/images/SVG/indomaret.svg" alt="Indomaret"></div>
+                <div class="client-logo" style="width: 300px;"><img src="assets/images/SVG/kik.svg" alt="KIK"></div>
+                <div class="client-logo"><img src="assets/images/SVG/aesi.svg" alt="AESI"></div>
+                <div class="client-logo"><img src="assets/images/SVG/ocbc.svg" alt="OCBC"></div>
+                <div class="client-logo"><img src="assets/images/SVG/daikin.svg" alt="Daikin"></div>
+                <div class="client-logo"><img src="assets/images/SVG/bobocabin.svg" alt="Bobocabin"
+                        style="height: 100px; width: 100px;"></div>
+                <div class="client-logo"><img src="assets/images/SVG/grab.svg" alt="Grab"></div>
+                <div class="client-logo"><img src="assets/images/SVG/panarama.svg" alt="Panarama"></div>
+                <div class="client-logo"><img src="assets/images/SVG/sig.svg" alt="SIG"></div>
+            </div>
+        </div>
+        <div class="clients-footer-text">
+            AND OUR OTHERS COLLABORATIVE CLIENT
+        </div>
+    </div>
+</section>
+
+</section>
+
+<!-- FAQ Section (New) -->
+<section id="faq" class="faq-section">
+    <div class="container" style="text-align: center;">
+        <h2 class="section-title" style="text-align: center;">Frequently Asked Questions</h2>
+        <p class="section-subtitle" style="text-align: center; margin-bottom: 24px;">Common questions about our Event
+            Organizing services</p>
+        <div class="faq-grid">
+            <!-- Item 1 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What types of events do you specialize in?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-content">
+                        <p>We specialize in a wide range of events including Corporate Gatherings, Product Launches,
+                            Music Festivals, Award Nights, and Luxury Weddings. Our team is versatile and
+                            experienced in handling both intimate and large-scale productions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How far in advance should we contact you?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-content">
+                        <p>For large-scale events, we recommend contacting us at least 3-6 months in advance to
+                            ensure availability and adequate planning time. However, we are also capable of handling
+                            events with tighter timelines depending on the scope.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Do you handle technical production and vendors?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-content">
+                        <p>Yes, we offer end-to-end management. We have our own inventory of AV equipment and a
+                            network of trusted vendor partners for catering, decor, and entertainment, ensuring
+                            seamless coordination.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Can you work within our specific budget?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-content">
+                        <p>Absolutely. We believe in providing value at every price point. During our initial
+                            consultation, we will discuss your budget and tailor a proposal that maximizes impact
+                            without overspending.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Do you provide design and concepting services?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-content">
+                        <p>Yes, we have an in-house creative team that develops unique concepts, stage designs, and
+                            visual identities to make your event truly stand out.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Articles (New) -->
+<section id="latest-articles" class="blog-list-section"
+    style="background-color: var(--background-color); padding: 100px 0;">
+    <div class="container">
+        <div class="section-header text-center" style="margin-bottom: 60px;">
+            <h4 class="sub-title">Our Journal</h4>
+            <h2 class="section-title" style="color: white;">Latest Articles</h2>
+        </div>
+
+        <div class="blog-grid" id="latest-articles-grid">
+            <!-- Data injected by landing-dynamic.js -->
+            <div class="loading-indicator" style="grid-column: 1/-1; text-align: center; color: #666;">
+                Loading articles...
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="blog.html" class="btn-primary">View More Articles</a>
+        </div>
+    </div>
+</section>
+
+<!-- Get in Touch -->
+<section id="contact" class="get-in-touch">
+    <div class="overlay"></div>
+    <div class="container content">
+        <h2>Ready to create something amazing?</h2>
+        <p>Let's collaborate and bring your vision to life.</p>
+        <a href="https://wa.me/6285215168765" class="btn-primary">Get in Touch</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <a href="#hero" class="logo">
+                <img src="assets/images/logo.png" alt="DNK Logo" style="height: 80px;">
+            </a>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <div class="contact-details">
+                <p>PT Diwangsa Nyala Kreatif</p>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Kyai Saleh Atas No.84, Mugassari, Kec. Semarang Sel., Kota
+                    Semarang, Jawa Tengah 50249</p>
+                <p><i class="fas fa-phone"></i><a href="https://wa.me/6285215168765">+62 852-1516-8765</a>
+                </p>
+                <p><i class="fas fa-envelope"></i>
+                    <a href="mailto:project.dnk@diwangsa.com">project.dnk@diwangsa.com</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4821.288088557957!2d110.41177641139762!3d-6.990457768432849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d53cfd5054b%3A0x912c2ded67eac1ff!2sPT.%20Diwangsa%20Nyala%20Kreatif%20(DNK%20EO)!5e1!3m2!1sid!2sid!4v1766041750478!5m2!1sid!2sid"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Diwangsa Nyala Kreatif. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Scroll Control -->
+<button id="scroll-ctrl" class="scroll-ctrl-btn">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+
+<!-- Flipbook Modal -->
+<div id="flipbook-modal" class="flipbook-overlay">
+    <!-- Controls Header (Top Right) -->
+    <div class="flipbook-header">
+        <a id="flipbook-download" href="#" target="_blank" class="flip-download-btn">
+            <i class="fas fa-download"></i> Download PDF
+        </a>
+        <button id="flipbook-close" class="flipbook-close"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="book-stage">
+        <div id="book-wrapper" class="book-wrapper">
+            <!-- Pages will be injected here -->
+        </div>
+
+        <div class="flip-controls">
+            <button id="prev-page" class="flip-btn"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-page" class="flip-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<!-- Appwrite SDK -->
+<script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+<script src="assets/js/appwrite-config.js"></script>
+<script src="assets/js/landing-dynamic.js"></script>
+
+<!-- PDF.js Legacy/Modern Build from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<script src="assets/js/script.js"></script>
+<!-- Flipbook Logic -->
+<link rel="stylesheet" href="assets/css/flipbook.css">
+<script src="assets/js/flipbook.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Article... - DNK Creative</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container header-content">
+            <a href="blog.html" class="btn-back-header"
+                style="color: white; margin-right: 20px; font-size: 1.1rem; text-decoration: none; font-weight: 600;"><i
+                    class="fas fa-arrow-left"></i> Back</a>
+            <a href="index.html" class="logo"
+                style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <img src="assets/images/logo.png" alt="DNK Logo" style="height: 40px;">
+                <span
+                    style="color: var(--primary-color); font-weight: 800; font-size: 1.2rem; letter-spacing: 1px;">BLOG</span>
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#welcome">Projects</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#clients">Clients</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <a href="index.html#contact" class="btn-contact"><i class="fab fa-whatsapp"></i> Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-page">
+
+        <!-- Hero / Header -->
+        <section class="article-header">
+            <div class="container">
+                <div class="article-meta-top">
+                    <span id="article-category" class="category-tag">Category</span>
+                    <span id="article-date" class="date-tag">Date</span>
+                </div>
+                <h1 id="article-title" class="article-title">Loading Title...</h1>
+                <p id="article-summary" class="article-summary" style="display:none; color: white; margin-top: 12px;">
+                </p>
+            </div>
+        </section>
+
+        <!-- Cover Image -->
+        <div class="article-cover-container">
+            <div class="container">
+                <img id="article-cover" src="" alt="Cover Image" class="article-cover-img">
+            </div>
+        </div>
+
+        <!-- Rich Text Content -->
+        <section class="article-body">
+            <div class="container medium-container">
+                <!-- Injected HTML from Quill -->
+                <div id="article-content" class="rich-text-content">
+                    <div class="loading-state">Loading content...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Share & Tags -->
+        <section class="article-footer-section">
+            <div class="container medium-container">
+                <div class="share-box">
+                    <span>Share this article:</span>
+                    <a href="#" id="share-wa"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" id="share-in"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" id="share-tw"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <a href="#" class="footer-logo">DNK</a>
+                <p>Elevating experiences, celebrating memories.</p>
+                <div class="contact-details">
+                    <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+                    <p><i class="fas fa-envelope"></i> hello@dnk.com</p>
+                </div>
+            </div>
+            <div class="footer-map">
+                <!-- Styles map iframe -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.24097834733!2d106.759478!3d-6.2297465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Special%20Capital%20Region%20of%20Jakarta!5e0!3m2!1sen!2sid!4v1689000000000!5m2!1sen!2sid"
+                    width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 DNK Creative. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+    <script src="assets/js/appwrite-config.js"></script>
+    <!-- Logic -->
+    <script src="assets/js/article-dynamic.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

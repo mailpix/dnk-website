@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - DNK Creative</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo"
+                style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <img src="assets/images/logo.png" alt="DNK Logo" style="height: 60px;">
+                <span
+                    style="color: var(--primary-color); font-weight: 800; font-size: 1.2rem; letter-spacing: 1px;">BLOG</span>
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#clients">Clients</a></li>
+                </ul>
+            </nav>
+            <a href="index.html#contact" class="btn-contact"><i class="fab fa-whatsapp"></i> Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1 class="hero-title">DNK Blog.</h1>
+            <p class="hero-subtitle">Insights, updates, and stories from the creative world.</p>
+
+            <div class="search-bar-container">
+                <input type="text" id="search-input" placeholder="Search articles...">
+                <button id="search-clear" style="display: none;"><i class="fas fa-times"></i></button>
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-list-section">
+        <div class="container">
+            <div id="blog-grid" class="blog-grid">
+                <!-- Javascript will inject articles here -->
+                <div class="loading-state">
+                    Loading articles...
+                </div>
+            </div>
+
+            <div class="pagination-container" id="pagination">
+                <!-- Pagination buttons if needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#hero" class="logo">
+                    <img src="assets/images/logo.png" alt="DNK Logo" style="height: 80px;">
+                </a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <div class="contact-details">
+                    <p>PT Diwangsa Nyala Kreatif</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kyai Saleh Atas No.84, Mugassari, Kec. Semarang Sel.,
+                        Kota
+                        Semarang, Jawa Tengah 50249</p>
+                    <p><i class="fas fa-phone"></i><a href="https://wa.me/6285215168765">+62 852-1516-8765</a>
+                    </p>
+                    <p><i class="fas fa-envelope"></i>
+                        <a href="mailto:project.dnk@diwangsa.com">project.dnk@diwangsa.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4821.288088557957!2d110.41177641139762!3d-6.990457768432849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d53cfd5054b%3A0x912c2ded67eac1ff!2sPT.%20Diwangsa%20Nyala%20Kreatif%20(DNK%20EO)!5e1!3m2!1sid!2sid!4v1766041750478!5m2!1sid!2sid"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Diwangsa Nyala Kreatif. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+    <!-- Config -->
+    <script src="assets/js/appwrite-config.js"></script>
+    <!-- Blog Logic -->
+    <script src="assets/js/blog-dynamic.js"></script>
+    <script src="assets/js/script.js"></script> <!-- For mobile menu -->
+
+</body>
+
+</html>

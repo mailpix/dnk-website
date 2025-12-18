@@ -1,0 +1,426 @@
+:root {
+    --primary-color: #000000;
+    --background-color: #ffffff;
+    --accent-color: #d4af37;
+    --text-color: #1a1a1a;
+    --text-muted: #666666;
+    --font-main: 'Albert Sans', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --transition-speed: 0.4s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page Transition: Slide Up Reveal */
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+
+    /* Initial State for Transition */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Shared Navigation & Button Styles (Matched to Landing) --- */
+.detail-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+.detail-nav.scrolled {
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 40px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo img {
+    height: 40px;
+    display: block;
+}
+
+/* Back Link (Styled similar to nav links) */
+.back-link {
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    position: relative;
+    opacity: 0.9;
+    transition: var(--transition-speed);
+}
+
+.back-link i {
+    font-size: 0.8rem;
+}
+
+.back-link:hover {
+    color: var(--accent-color);
+    transform: translateX(-5px);
+}
+
+/* Contact Button (From Landing) */
+.btn-contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 25px;
+    background-color: transparent;
+    border: 1px solid white;
+    /* White for header contrast */
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    transition: all var(--transition-speed);
+}
+
+.btn-contact i {
+    font-size: 1.1rem;
+    color: #25D366;
+}
+
+.btn-contact:hover {
+    background-color: white;
+    color: black;
+}
+
+/* --- Hero --- */
+.detail-hero {
+    position: relative;
+    height: 80vh;
+    /* Taller hero */
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax feel */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.project-subtitle {
+    font-family: var(--font-main);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    animation: fadeInDown 1s ease 0.2s backwards;
+}
+
+.project-title {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease 0.4s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Magazine Sidebar Layout --- */
+.magazine-body {
+    background-color: white;
+    padding: 100px 0;
+    position: relative;
+    z-index: 2;
+    /* Sit above fixed hero */
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.magazine-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 80px;
+}
+
+/* Sidebar */
+.project-sidebar {
+    position: sticky;
+    top: 120px;
+    /* Below header */
+    height: fit-content;
+}
+
+/* Sidebar Typography */
+.meta-group {
+    margin-bottom: 50px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.meta-group:last-child {
+    border-bottom: none;
+}
+
+.meta-group h5 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.meta-group p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #000;
+}
+
+.description-group p {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+    text-align: justify;
+}
+
+/* --- Magazine Gallery Grid --- */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 Columns base */
+    grid-auto-rows: 300px;
+    /* Base row height */
+    gap: 20px;
+    grid-auto-flow: dense;
+    /* Crucial for filling gaps */
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    /* Rounded corners */
+    overflow: hidden;
+    background: #f0f0f0;
+    opacity: 0;
+    animation: fadeReveal 0.8s ease forwards;
+}
+
+/* Stagger Animations */
+.gallery-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.gallery-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.gallery-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.gallery-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.gallery-item:nth-child(n+5) {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Grid Variations */
+.item-tall {
+    grid-row: span 2;
+    /* Tall Portrait */
+}
+
+.item-wide {
+    grid-column: span 2;
+    /* Wide Landscape */
+}
+
+.item-big {
+    grid-column: span 2;
+    grid-row: span 2;
+    /* Big Feature */
+}
+
+/* --- Footer (Copy from Landing) --- */
+.main-footer {
+    background-color: #0a0a0a;
+    color: #f0f0f0;
+    padding: 80px 0 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer-logo {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.footer-info p {
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.contact-details p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.footer-map {
+    flex: 1;
+    min-width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .magazine-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .project-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .project-gallery {
+        grid-template-columns: 1fr;
+        /* Single column on mobile */
+        grid-auto-rows: 250px;
+    }
+
+    .item-wide,
+    .item-big {
+        grid-column: span 1;
+    }
+
+    .project-title {
+        font-size: 3rem;
+    }
+
+    .detail-nav {
+        padding: 15px 20px;
+    }
+}

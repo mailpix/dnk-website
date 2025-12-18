@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNK Admin Dashboard</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <!-- Quill Theme -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <style>
+        /* Dashboard specific overrides */
+        body {
+            display: block;
+            /* Reset flex center from login */
+            padding: 0;
+            background-color: #050505;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #111;
+            border-bottom: 1px solid #222;
+        }
+
+        .admin-user {
+            color: #888;
+            font-size: 0.9rem;
+            margin-right: 20px;
+        }
+
+        .btn-logout {
+            background: none;
+            border: 1px solid #333;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:hover {
+            background: #222;
+            color: #ff4d4d;
+            border-color: #ff4d4d;
+        }
+
+        .dashboard-content {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dashboard-card {
+            background: #111;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #222;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="DNK" class="sidebar-logo">
+                <span>Admin</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-target="projects">
+                    <i class="icon-grid"></i> Projects
+                </a>
+                <a href="#" class="nav-item" data-target="articles">
+                    <i class="icon-file-text"></i> Articles
+                </a>
+                <a href="#" class="nav-item disabled">
+                    <i class="icon-settings"></i> Settings
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="btn-logout" class="btn-logout-sidebar">Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <h2 id="page-title">Portfolio Projects</h2>
+                <div class="user-info">
+                    <span id="user-display">Checking...</span>
+                </div>
+            </header>
+
+            <div id="projects-section" class="content-wrapper">
+                <div class="actions-bar">
+                    <p class="description">Manage your latest Works and Events.</p>
+                    <button id="btn-add-project" class="btn-primary-admin">+ New Project</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div id="project-list" class="project-grid">
+                    <div class="loading-state">
+                        <p>Loading projects...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTICLES SECTION (Hidden by default) -->
+            <div id="articles-section" class="content-wrapper hidden">
+                <div class="actions-bar">
+                    <p class="description">Manage your Blog Posts and Updates.</p>
+                    <button id="btn-add-article" class="btn-primary-admin">+ New Article</button>
+                </div>
+
+                <div id="article-list" class="project-grid">
+                    <div class="loading-state">Loading articles...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Project Modal -->
+    <div id="project-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Add New Project</h3>
+                <button id="btn-close-modal" class="btn-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="project-form">
+                    <input type="hidden" id="project-id"> <!-- For Edit Mode -->
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Project Title</label>
+                            <input type="text" id="p-title" required placeholder="e.g. Gelegar Musik 2025">
+                        </div>
+                        <div class="form-group">
+                            <label>Client / Brand</label>
+                            <input type="text" id="p-client" required placeholder="e.g. PT PLN">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Subtitle / Category</label>
+                            <input type="text" id="p-subtitle" required placeholder="e.g. Concerts">
+                        </div>
+                        <div class="form-group">
+                            <label>Event Date</label>
+                            <input type="date" id="p-date" required
+                                style="background:#222; color:white; border:1px solid #333; padding:10px; border-radius:4px; width:100%;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Story / Description</label>
+                        <textarea id="p-desc" rows="4" required placeholder="Describe the event..."></textarea>
+                    </div>
+
+                    <!-- Images -->
+                    <div class="form-section-title">Media Assets</div>
+
+                    <!-- Thumbnail -->
+                    <div class="form-group">
+                        <label>Thumbnail Image (Main Grid)</label>
+                        <div style="display:flex; gap:10px; align-items:center; margin-bottom:5px;">
+                            <input type="file" id="p-thumbnail-file" accept="image/*">
+                            <button type="button" id="btn-remove-thumb"
+                                style="display:none; background:red; color:white; border:none; padding:5px 10px; border-radius:4px; cursor:pointer;">Remove</button>
+                        </div>
+                        <small style="color:#666; font-size: 11px; display:block; margin-bottom:5px;">Max size: 10MB.
+                            Otomatis dikompres.</small>
+                        <div id="thumb-size-info"
+                            style="font-size: 12px; color: #ccc; margin-bottom: 5px; min-height:15px;"></div>
+
+                        <div id="thumb-preview" class="image-preview-box"
+                            style="width:100%; height: 200px; background:#1a1a1a; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:6px; border:1px dashed #333;">
+                            <span style="color:#444;">No image selected</span>
+                        </div>
+                        <input type="hidden" id="p-thumbnail-url">
+                    </div>
+
+                    <!-- Gallery -->
+                    <div class="form-group">
+                        <label>Gallery Images (Detail Page)</label>
+                        <div style="display:flex; gap:10px; align-items:center; margin-bottom:5px;">
+                            <input type="file" id="p-gallery-files" multiple accept="image/*">
+                            <button type="button" id="btn-remove-gallery"
+                                style="display:none; background:red; color:white; border:none; padding:5px 10px; border-radius:4px; cursor:pointer;">Clear
+                                All</button>
+                        </div>
+                        <div id="gallery-preview" class="gallery-preview-grid"
+                            style="display:flex; gap:5px; flex-wrap:wrap;">
+                            <!-- Previews go here -->
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" id="btn-cancel" class="btn-secondary">Cancel</button>
+                        <button type="submit" id="btn-save" class="btn-primary-admin">Save Project</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Editor Modal (Full Screen) -->
+    <div id="article-modal" class="modal hidden" style="z-index: 200;">
+        <div class="modal-content" style="max-width: 900px; width: 95%;">
+            <div class="modal-header">
+                <h3 id="article-modal-title">Write Article</h3>
+                <button id="btn-close-article-modal" class="btn-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="article-form">
+                    <input type="hidden" id="article-id">
+
+                    <div class="form-group">
+                        <label>Title <span style="color:red">*</span></label>
+                        <input type="text" id="a-title" required placeholder="Article Title" maxlength="100"
+                            style="font-size: 1.2rem; font-weight: 600;">
+                        <small style="color:#666; font-size: 11px;">Max 100 characters.</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Slug (URL) <span style="color:red">*</span></label>
+                            <input type="text" id="a-slug" required placeholder="program-kemerdekaan-ri-79">
+                        </div>
+                        <div class="form-group">
+                            <label>Category <span style="color:red">*</span></label>
+                            <select id="a-category" required
+                                style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid #333; border-radius: 8px; color: white;">
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="Tips & Tricks">Tips & Tricks</option>
+                                <option value="Event News">Event News</option>
+                                <option value="Behind The Scene">Behind The Scene</option>
+                                <option value="Industry Updates">Industry Updates</option>
+                                <option value="Portfolio Highlight">Portfolio Highlight</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Published Date <span style="color:red">*</span></label>
+                            <input type="datetime-local" id="a-date" required
+                                style="background:#222; color:white; border:1px solid #333; padding:10px; border-radius:4px; width:100%;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cover Image <span style="color:red">*</span></label>
+                        <div style="display:flex; gap:10px; align-items:center; margin-bottom:5px;">
+                            <input type="file" id="a-cover-file" accept="image/*">
+                            <button type="button" id="btn-remove-cover"
+                                style="display:none; background:red; color:white; border:none; padding:5px 10px; border-radius:4px; cursor:pointer;">Remove</button>
+                        </div>
+                        <small style="color:#666; font-size: 11px; display:block; margin-bottom:5px;">Max size: 10MB.
+                            Smart Compression Enabled.</small>
+                        <div id="a-cover-size-info"
+                            style="font-size: 12px; color: #ccc; margin-bottom: 5px; min-height:15px;"></div>
+
+                        <div id="a-cover-preview"
+                            style="margin-top:10px; height:150px; background:#111; display:flex; align-items:center; justify-content:center; border:1px dashed #444;">
+                            <span style="color:#666;">No Cover Selected</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Excerpt (Short Summary) <span style="color:red">*</span></label>
+                        <textarea id="a-excerpt" rows="2" maxlength="300" required
+                            placeholder="Short description for the card..."></textarea>
+                        <small style="color:#666; font-size: 11px;">Max 300 characters.</small>
+                    </div>
+
+                    <!-- SEO / Tags -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tags (Separate by comma)</label>
+                            <input type="text" id="a-tags" placeholder="music, concert, 2024">
+                            <small style="color:#666; font-size: 11px;">Optional. Useful for search.</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>SEO Meta Description (Optional)</label>
+                        <textarea id="a-meta-desc" rows="2" maxlength="160"
+                            placeholder="Description for Google Search (max 160 chars)"></textarea>
+                        <small style="color:#666; font-size: 11px;">Max 160 characters.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Content</label>
+                        <!-- Quill Editor Container -->
+                        <div id="editor-container" style="height: 400px; background: white; color: black;"></div>
+                        <input type="hidden" id="a-content-html"> <!-- Stores the HTML -->
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" id="btn-cancel-article" class="btn-secondary">Cancel</button>
+                        <button type="button" id="btn-preview-article" class="btn-secondary"
+                            style="border-color: var(--accent-color); color: var(--accent-color);">Preview</button>
+                        <button type="submit" id="btn-save-article" class="btn-primary-admin" disabled
+                            style="opacity: 0.5; cursor: not-allowed;">Publish Article</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+
+    <!-- Config & Logic -->
+    <script src="assets/js/appwrite-config.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <!-- CMS Logic -->
+    <script src="assets/js/dashboard-cms.js"></script>
+
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="assets/js/article-cms.js?v=2"></script>
+</body>
+
+</html>
