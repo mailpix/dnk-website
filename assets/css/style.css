@@ -1272,10 +1272,6 @@ ul {
         grid-row: auto;
     }
 
-    .hero-title {
-        font-size: 3.5rem;
-    }
-
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1328,13 +1324,30 @@ ul {
         display: none;
     }
 
-    .hero-title {
+    .title-line {
         font-size: 2.8rem;
+        /* Ukuran font dikecilkan agar muat */
+        white-space: normal;
+        /* Izinkan teks turun baris jika kepanjangan */
+        line-height: 1.2;
+        /* Jarak antar baris dirapikan */
+    }
+
+    .hero-subtitle {
+        font-size: 0.5rem;
+        /* Ukuran font dikecilkan agar muat */
+        white-space: normal;
+        /* Izinkan teks turun baris jika kepanjangan */
+        line-height: 1.2;
+        /* Jarak antar baris dirapikan */
     }
 
     .hero-buttons {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        /* PENTING: Membuat tombol jadi di tengah */
+        width: 100%;
+        gap: 20px;
     }
 
     .rotate-wrapper {
