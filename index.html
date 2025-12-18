@@ -14,7 +14,7 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="assets/css/style.css?v=3">
     <link rel="stylesheet" href="assets/css/blog.css?v=3">
 </head>
@@ -23,8 +23,6 @@
 
     <!-- Scroll Progress Stick -->
     <div id="scroll-progress"></div>
-
-    ...
 
     <!-- Scripts -->
     <!-- Appwrite SDK -->
@@ -132,12 +130,12 @@
         <div class="sticky-side left">
             <div class="video-info">
                 <span class="label">Featured Project</span>
-                <h2 id="sticky-video-title" class="fade-text">PLN Ardan Senja Syahdu</h2>
+                <h2 id="sticky-video-title" class="fade-text">Gelegar Musik Prambanan 2025</h2>
             </div>
             <!-- Button moved here -->
             <div class="video-cta">
                 <p style="margin-bottom: 5px; font-size: 0.8rem; opacity: 0.6;">Watch full video on</p>
-                <a href="https://www.youtube.com/watch?v=IN4Do2jh47I" target="_blank" id="sticky-video-btn"
+                <a href="https://www.youtube.com/watch?v=uL-vNUsbCtw" target="_blank" id="sticky-video-btn"
                     class="btn-youtube">
                     <i class="fab fa-youtube"></i> View
                 </a>
@@ -148,40 +146,40 @@
         <div class="scroll-center">
 
             <!-- Video 1 -->
-            <div class="video-card" data-title="PLN Ardan Senja Syahdu"
-                data-link="https://www.youtube.com/watch?v=IN4Do2jh47I">
+            <div class="video-card" data-title="Gelegar Musik Prambanan 2025"
+                data-link="https://www.youtube.com/watch?v=uL-vNUsbCtw">
                 <div class="video-blocker"></div>
                 <div class="video-frame">
                     <iframe id="player-1"
-                        src="https://www.youtube.com/embed/IN4Do2jh47I?enablejsapi=1&controls=0&rel=0&playsinline=1&mute=1&loop=1&playlist=IN4Do2jh47I"
+                        src="https://www.youtube.com/embed/uL-vNUsbCtw?enablejsapi=1&controls=0&rel=0&playsinline=1&mute=1&loop=1&playlist=uL-vNUsbCtw"
                         title="Video 1" frameborder="0" allow="autoplay; encrypted-media"></iframe>
                 </div>
             </div>
 
             <!-- Video 2 -->
-            <div class="video-card" data-title="Indonesia International Motor Show 2024"
-                data-link="https://www.youtube.com/watch?v=RXR588xbmbk">
+            <div class="video-card" data-title="Indomaret Run 2025"
+                data-link="https://www.youtube.com/watch?v=8UdP4uTOJDI">
                 <div class="video-blocker"></div>
                 <div class="video-frame">
                     <iframe id="player-2"
-                        src="https://www.youtube.com/embed/RXR588xbmbk?enablejsapi=1&controls=0&rel=0&playsinline=1&mute=1&loop=1&playlist=RXR588xbmbk"
+                        src="https://www.youtube.com/embed/8UdP4uTOJDI?enablejsapi=1&controls=0&rel=0&playsinline=1&mute=1&loop=1&playlist=8UdP4uTOJDI"
                         title="Video 2" frameborder="0" allow="autoplay; encrypted-media"></iframe>
                 </div>
             </div>
 
             <!-- Video 3 -->
-            <div class="video-card" data-title="PLN Mobile Ecofest 2024"
-                data-link="https://www.youtube.com/watch?v=VJntUBSxGiA">
+            <div class="video-card" data-title="Indomaret Lomba Masak 2025"
+                data-link="https://www.youtube.com/watch?v=xVxqECTmgAI">
                 <div class="video-blocker"></div>
                 <div class="video-frame">
                     <iframe id="player-3"
-                        src="https://www.youtube.com/embed/VJntUBSxGiA?enablejsapi=1&controls=0&rel=0&playsinline=1&mute=1&loop=1&playlist=VJntUBSxGiA"
+                        src="https://www.youtube.com/embed/xVxqECTmgAI?enablejsapi=1&controls=0&rel=0&playsinline=1&mute=1&loop=1&playlist=xVxqECTmgAI"
                         title="Video 3" frameborder="0" allow="autoplay; encrypted-media"></iframe>
                 </div>
             </div>
 
             <!-- Footer Quote -->
-            <div class="video-footer-quote">
+            <div class="video-footer-quote" style="text-align: right;">
                 "We don't just organize events, we connect your brand with audiences through unforgettable moments."
             </div>
 
@@ -531,6 +529,51 @@
         <p>&copy; 2025 Diwangsa Nyala Kreatif. All rights reserved.</p>
     </div>
 </footer>
+
+<!-- Scroll Control -->
+<button id="scroll-ctrl" class="scroll-ctrl-btn">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+
+<!-- Flipbook Modal -->
+<div id="flipbook-modal" class="flipbook-overlay">
+    <!-- Controls Header (Top Right) -->
+    <div class="flipbook-header">
+        <a id="flipbook-download" href="#" target="_blank" class="flip-download-btn">
+            <i class="fas fa-download"></i> Download PDF
+        </a>
+        <button id="flipbook-close" class="flipbook-close"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="book-stage">
+        <div id="book-wrapper" class="book-wrapper">
+            <!-- Pages will be injected here -->
+        </div>
+
+        <div class="flip-controls">
+            <button id="prev-page" class="flip-btn"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-page" class="flip-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<!-- Appwrite SDK -->
+<script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+<script src="assets/js/appwrite-config.js"></script>
+<script src="assets/js/landing-dynamic.js"></script>
+
+<!-- PDF.js Legacy/Modern Build from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<script src="assets/js/script.js"></script>
+<!-- Flipbook Logic -->
+<link rel="stylesheet" href="assets/css/flipbook.css">
+<script src="assets/js/flipbook.js"></script>
+</body>
+
+
 
 <!-- Scroll Control -->
 <button id="scroll-ctrl" class="scroll-ctrl-btn">

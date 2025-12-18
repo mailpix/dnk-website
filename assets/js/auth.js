@@ -71,6 +71,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
 
+    const togglePassword = document.getElementById('toggle-password');
+    const passwordField = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function () {
+        // Toggle password visibility
+        const type = passwordField.type === 'password' ? 'text' : 'password';
+        passwordField.type = type;
+
+        // Toggle eye icon (optional: change icon when visible)
+        togglePassword.innerHTML = type === 'password' ? '&#128065;' : '&#128064;';
+    });
+
     function showError(msg) {
         if (errorMsg) {
             errorMsg.innerText = msg;
