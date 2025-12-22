@@ -22,8 +22,8 @@ const galleryPreview = document.getElementById('gallery-preview');
 const btnRemoveGallery = document.getElementById('btn-remove-gallery');
 
 // Config
-const MAX_FILE_SIZE = 1 * 1024 * 1024; // 1MB Final Limit
-const MAX_INPUT_SIZE = 10 * 1024 * 1024; // 10MB Safety Limit
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB Final Limit
+const MAX_INPUT_SIZE = 15 * 1024 * 1024; // 15MB Safety Limit
 
 // EDIT STATE
 let isEditing = false;
@@ -52,7 +52,7 @@ function toIsoDate(dateStr) {
 
 // --- Helper: Smart Compression (Client Side) ---
 async function compressImage(file) {
-    if (file.size > MAX_INPUT_SIZE) throw new Error(`File ${file.name} terlalu besar (>10MB). Harap kecilkan manual.`);
+    if (file.size > MAX_INPUT_SIZE) throw new Error(`File ${file.name} terlalu besar (>15MB). Harap kecilkan manual.`);
     if (file.size <= MAX_FILE_SIZE) return file;
 
     return new Promise((resolve, reject) => {
@@ -257,7 +257,7 @@ if (thumbInput) {
     thumbInput.addEventListener('change', async function (e) {
         let file = e.target.files[0];
         if (file) {
-            if (file.size > MAX_INPUT_SIZE) { alert("File > 10MB"); this.value = ''; return; }
+            if (file.size > MAX_INPUT_SIZE) { alert("File > 15MB"); this.value = ''; return; }
 
             if (thumbInfo) thumbInfo.innerText = "Processing...";
             thumbPreview.innerHTML = '<div style="color:#666">...</div>';
@@ -312,7 +312,7 @@ if (galleryInput) {
 
         try {
             for (let f of files) {
-                if (f.size > MAX_INPUT_SIZE) { alert(">10MB detected"); galleryInput.value = ''; return; }
+                if (f.size > MAX_INPUT_SIZE) { alert(">15MB detected"); galleryInput.value = ''; return; }
             }
 
             const compressedFiles = await Promise.all(files.map(f => compressImage(f)));
