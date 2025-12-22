@@ -1,8 +1,8 @@
 // article-cms.js - Blog Management Logic (Final & Robust)
 
 let articleQuill;
-const BLOG_MAX_FILE_SIZE = 1 * 1024 * 1024; // 1MB
-const BLOG_MAX_INPUT_SIZE = 10 * 1024 * 1024; // 10MB
+const BLOG_MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const BLOG_MAX_INPUT_SIZE = 15 * 1024 * 1024; // 15MB
 
 // Global State
 let isEditingArticle = false;
@@ -208,7 +208,7 @@ function initArticleCMS() {
 
 // --- Logic Helpers ---
 async function compressImage(file) {
-    if (file.size > BLOG_MAX_INPUT_SIZE) throw new Error("File > 10MB");
+    if (file.size > BLOG_MAX_INPUT_SIZE) throw new Error("File > 15MB");
     if (file.size <= BLOG_MAX_FILE_SIZE) return file;
 
     return new Promise((resolve, reject) => {

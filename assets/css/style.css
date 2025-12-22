@@ -605,6 +605,7 @@ ul {
     /* Adjust height as needed */
     gap: 20px;
     width: 100%;
+    margin-bottom: 24px;
 }
 
 /* Grid Areas based on 4x3 visual */
