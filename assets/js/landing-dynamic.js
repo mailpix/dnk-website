@@ -131,7 +131,7 @@ async function initPortfolio() {
         grid.innerHTML = ''; // Clear loading indicator
 
         // Map index to bento class
-        const classes = ['bento-large', 'bento-wide', 'bento-small-1', 'bento-tall', 'bento-small-2', 'bento-wide-bottom', 'bento-large', 'bento-wide', 'bento-small-1'];
+        const classes = ['bento-large', 'bento-wide', 'bento-small-1', 'bento-tall', 'bento-small-2', 'bento-wide-bottom', 'bento-large1', 'bento-wide1', 'bento-small-3'];
 
         response.documents.forEach((doc, index) => {
             const sizeClass = classes[index % classes.length];
