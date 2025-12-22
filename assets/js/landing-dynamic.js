@@ -119,7 +119,7 @@ async function initPortfolio() {
             [
                 // Order by newest
                 Appwrite.Query.orderDesc('project_date'),
-                Appwrite.Query.limit(6)
+                Appwrite.Query.limit(9)
             ]
         );
 
