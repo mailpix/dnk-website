@@ -17,6 +17,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="assets/css/style.css?v=3">
     <link rel="stylesheet" href="assets/css/blog.css?v=3">
+    <link rel="stylesheet" href="assets/css/transformation.css">
 </head>
 
 <body>
@@ -330,6 +331,50 @@
     </div>
 </section>
 
+<!-- Transformation Gallery -->
+<section id="transformation">
+    <div class="transform-container">
+        <div class="transform-header">
+            <h4 class="transform-subtitle">Selected Production</h4>
+            <h2 class="transform-title">Make it happen.</h2>
+        </div>
+
+        <div class="transform-display">
+            <!-- Dynamic Title -->
+            <h3 class="active-project-title">Loading...</h3>
+
+            <!-- Comparison Slider -->
+            <div class="comparison-slider">
+                <!-- After Image (Background) -->
+                <div class="comparison-item after-image">
+                    <img src="" alt="After">
+                    <span class="label after">After</span>
+                </div>
+
+                <!-- Before Image (Foreground, clipped) -->
+                <div class="comparison-item before-image">
+                    <img src="" alt="Before">
+                    <span class="label before">Before</span>
+                </div>
+
+                <!-- Slider Handle -->
+                <div class="slider-handle"></div>
+            </div>
+
+            <!-- Thumbnails Carousel -->
+            <div class="thumbnails-wrapper">
+                <button class="thumb-nav-btn" id="thumb-prev"><i class="fas fa-chevron-left"></i></button>
+
+                <div class="thumbnails-track" id="thumbs-track">
+                    <!-- Injected via JS -->
+                </div>
+
+                <button class="thumb-nav-btn" id="thumb-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Welcome & Portfolio Section -->
 <section id="projects" class="project-section" style="margin-top: 48px;">
     <div class="container">
@@ -567,55 +612,7 @@
 <!-- PDF.js Legacy/Modern Build from CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
-<script src="assets/js/script.js"></script>
-<!-- Flipbook Logic -->
-<link rel="stylesheet" href="assets/css/flipbook.css">
-<script src="assets/js/flipbook.js"></script>
-</body>
-
-
-
-<!-- Scroll Control -->
-<button id="scroll-ctrl" class="scroll-ctrl-btn">
-    <i class="fas fa-arrow-up"></i>
-</button>
-
-
-<!-- Flipbook Modal -->
-<div id="flipbook-modal" class="flipbook-overlay">
-    <!-- Controls Header (Top Right) -->
-    <div class="flipbook-header">
-        <a id="flipbook-download" href="#" target="_blank" class="flip-download-btn">
-            <i class="fas fa-download"></i> Download PDF
-        </a>
-        <button id="flipbook-close" class="flipbook-close"><i class="fas fa-times"></i></button>
-    </div>
-
-    <div class="book-stage">
-        <div id="book-wrapper" class="book-wrapper">
-            <!-- Pages will be injected here -->
-        </div>
-
-        <div class="flip-controls">
-            <button id="prev-page" class="flip-btn"><i class="fas fa-chevron-left"></i></button>
-            <button id="next-page" class="flip-btn"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </div>
-</div>
-
-<!-- Scripts -->
-<!-- Appwrite SDK -->
-<script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
-<script src="assets/js/appwrite-config.js"></script>
-<script src="assets/js/landing-dynamic.js"></script>
-
-<!-- PDF.js Legacy/Modern Build from CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
-<script src="assets/js/script.js"></script>
-<!-- Flipbook Logic -->
-<link rel="stylesheet" href="assets/css/flipbook.css">
-<script src="assets/js/flipbook.js"></script>
+<script src="assets/js/transformation.js"></script>
 </body>
 
 </html>

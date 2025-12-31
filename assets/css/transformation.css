@@ -1,0 +1,266 @@
+/* Transformation Gallery Styles */
+#transformation {
+    padding: 100px 0;
+    background-color: #050505;
+    color: white;
+}
+
+.transform-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.transform-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.transform-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.transform-subtitle {
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Main Display Area */
+.transform-display {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.active-project-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    min-height: 1.5rem;
+}
+
+/* Comparison Slider */
+.comparison-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-radius: 12px;
+    /* Cursor indicates interactivity without clicking */
+    cursor: crosshair;
+    background: #111;
+    border: 1px solid #333;
+}
+
+.comparison-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Let clicks pass through if needed */
+}
+
+.comparison-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures filling the box */
+    display: block;
+}
+
+/* 
+   FIX RATIO: Instead of changing width of the container,
+   we use clip-path. This ensures the image stays full size
+   and is just revealed/hidden, preventing squashing.
+*/
+.before-image {
+    z-index: 2;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    clip-path: inset(0 50% 0 0);
+    /* Default 50% revealed */
+    border-right: none;
+    /* Border handled by slider handle line */
+}
+
+.after-image {
+    z-index: 1;
+}
+
+/* Labels */
+.label {
+    position: absolute;
+    top: 20px;
+    padding: 5px 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    pointer-events: none;
+    z-index: 3;
+    user-select: none;
+}
+
+.label.before {
+    left: 20px;
+}
+
+.label.after {
+    right: 20px;
+}
+
+/* Slider Handle */
+.slider-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    /* Thin line */
+    background: white;
+    z-index: 3;
+    pointer-events: none;
+    /* Follows mouse purely visually */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Circular Knob on the handle */
+.slider-handle::before {
+    content: '< >';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Thumbnail Carousel Wrapper */
+.thumbnails-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* The scrollable track */
+.thumbnails-track {
+    flex: 1;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 5px;
+    /* Space for hover effects */
+
+    /* Hide Scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE */
+}
+
+.thumbnails-track::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.thumb-item {
+    flex: 0 0 120px;
+    /* Fixed width items */
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumb-item:hover {
+    opacity: 0.8;
+    transform: translateY(-3px);
+}
+
+.thumb-item.active {
+    opacity: 1;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Nav Buttons */
+.thumb-nav-btn {
+    background: #222;
+    border: 1px solid #333;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.thumb-nav-btn:hover {
+    background: var(--accent-color);
+    color: black;
+    border-color: var(--accent-color);
+}
+
+.thumb-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+    background: #111;
+    color: #555;
+    border-color: #222;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .transform-title {
+        font-size: 2rem;
+    }
+
+    .comparison-slider {
+        aspect-ratio: 4/3;
+    }
+
+    .thumb-item {
+        flex: 0 0 90px;
+    }
+}
